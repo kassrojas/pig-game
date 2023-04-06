@@ -11,7 +11,8 @@ const btnRollDice = document.querySelector(".btn--roll");
 const btnHoldScore = document.querySelector(".btn--hold");
 const btnRules = document.querySelector(".btn--rules");
 const rulesModal = document.querySelector(".rules-modal");
-const closeModal = document.querySelector(".close-modal");
+const closeModal = document.querySelector(".close-modal-icon");
+const youWinScreen = document.querySelector("#you-win");
 
 let totalScores, currentScore, activePlayer, playing;
 
@@ -33,6 +34,9 @@ const init = function () {
   player0El.classList.add('player--active');
   player1El.classList.remove('player--winner');
   player1El.classList.remove('player--active');
+  btnHoldScore.classList.remove('hidden');
+  btnRollDice.classList.remove('hidden');
+  youWinScreen.classList.add('hidden');
 };
 
 const switchPlayer = () => {
@@ -74,19 +78,31 @@ btnHoldScore.addEventListener("click", function () {
     totalScores[activePlayer] += currentScore;
     document.querySelector(`#score--${activePlayer}`).textContent = totalScores[activePlayer];
 
-    if (totalScores[activePlayer] >= 100) {
+    if (totalScores[activePlayer] >= 10) {
 
       playing = false;
 
+      // from active to winner
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.remove('player--active');
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
+
+      // hide dice, hold, and roll elements
       diceImg.classList.add('hidden');
+      btnHoldScore.classList.add('hidden');
+      btnRollDice.classList.add('hidden');
+
+      // show winning message
+      youWinScreen.classList.remove('hidden');
+      youWinScreen.innerHTML = `
+        Congratulations Player ${activePlayer + 1}! </br> You win! 🎉 
+      `;
+
     } else {
-      //otherwise switch players)
+      //otherwise switch players
       switchPlayer();
     }
   }
