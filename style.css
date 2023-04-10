@@ -215,6 +215,9 @@ footer a:focus {
 
   .rules-modal {
     height: 100%;
+    background-color: var(--purp);
+    color: white;
+    text-shadow: none;
   }
 
   .rules-list {
