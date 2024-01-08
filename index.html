@@ -14,6 +14,7 @@
     <section class="player player--0 player--active">
       <div>
         <h2 class="name" id="name--0">Player 1</h2>
+        <p class="overall-label">Overall Score:</p>
         <p class="score" id="score--0"></p>
         <div class="current">
           <p class="current-label">Current</p>
@@ -24,6 +25,7 @@
     <section class="player player--1">
       <div>
         <h2 class="name" id="name--1">Player 2</h2>
+        <p class="overall-label">Overall Score:</p>
         <p class="score" id="score--1"></p>
         <div class="current">
           <p class="current-label">Current</p>
@@ -33,10 +35,14 @@
     </section>
     <section class="all-buttons">
       <img src="dice-5.png" alt="Playing dice" class="dice" />
-      <button class="btn btn--roll">🎲 Roll dice</button>
-      <button class="btn btn--hold">📥 Hold</button>
-      <button class="btn btn--rules">📖 Rules</button>
-      <button class="btn btn--new">🔄 New game</button>
+      <div class="play-buttons">
+        <button class="btn btn--roll">🎲 Roll dice</button>
+        <button class="btn btn--hold">📥 Hold</button>
+      </div>
+      <div class="other-btns">
+        <button class="btn btn--rules">📖 Rules</button>
+        <button class="btn btn--new">🔄 New game</button>
+      </div>
     </section>
     <h2 id="you-win" class="hidden"></h2>
   </main>
@@ -45,20 +51,22 @@
   <div class="rules-modal hidden">
     <button class="close-modal-icon">&times;</button>
     <section class="rules-list">
-      <ul>
+      <ul style="list-style: none;">
         <h4 style="color: limegreen;">TO WIN 🎉</h4>
         <li>
           Be the first to accumulate an overall score of 100 points!
         </li></br>
-        <h4>🎲 ROLL DICE</h4>
+        <h4 class="rules-btn">🎲 ROLL DICE</h4>
+        </br>
         <li>
           This button rolls the dice and adds that dice roll to your current running score
-        </li></br>
-        <h4>📥 HOLD</h4>
+        </li> </br>
+        <h4 class="rules-btn">📥 HOLD</h4>
+        </br>
         <li>
           Click this to add your current runnning score to your overall score and move to the next player.
         </li></br>
-        <h4 style="color: red;">HOT POTATO ☠️</h4>
+        <h4 style="color: red;">HOT POTATO ☠️</h4></br>
         <li>
           If you roll a 1, your <i>current</i> score will be reset to 0.</br> It's not <i>all</i> bad-- your overall
           score stays the same!

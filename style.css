@@ -13,6 +13,7 @@
   --red: #bf2e34;
   --red-pink: #c7365f;
   --light-pink: #ffc0e4;
+  --almost-white-pink: #f8e5ff;
   --yellow: #FFEE32;
   --darker-yellow: #FFD500;
   --yellow-orange: #FDC500;
@@ -75,10 +76,9 @@ body {
 
 
 #you-win {
-  background-color: var(--purp) !important;
-  font-size: 1.5rem;
-  color: white;
-  text-shadow: none !important;
+  background-color: var(--darker-yellow);
+  font-size: 2rem;
+  color: var(--purp-dark);
   text-transform: uppercase;
   justify-content: center;
 }
@@ -87,25 +87,46 @@ body {
 #you-win {
   position: absolute;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   text-align: center;
   padding: 2rem;
   font-weight: 900;
-
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5rem);
+  backdrop-filter: blur(10rem);
   border-radius: 2rem;
-  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.4);
+}
+
+.rules-modal {
   text-shadow: 0 1rem 2rem var(--light-pink);
 }
 
 .rules-list {
-  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
   margin: 0 auto;
 }
 
-.rules-list li {
-  list-style-type: none;
+.rules-btn {
+  color: #444;
+  background: none;
+  border: none;
+  font-family: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.5s;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  padding: .7rem;
+  margin: 0 auto;
 }
 
 .close-modal-icon {
@@ -201,40 +222,51 @@ footer a:focus {
     margin: 1rem auto;
   }
 
-  .all-buttons {
-    text-align: center;
+  .play-buttons {
     display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 0 auto;
-
+    justify-content: center;
+    width: 100%;
   }
 
-  .all-buttons .btn {
-    margin: .2rem 0;
-    font-size: 1rem;
-    padding: 0.2rem;
+  .play-buttons .btn {
+    padding: 1rem;
+    margin: 0.25rem;
+  }
+
+  .other-btns {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .other-btns .btn {
+    padding: 0.35rem;
+    margin: 0.25rem;
+    background-color: rgba(89, 13, 35, 0.5);
+    color: var(--almost-white-pink);
   }
 
   #you-win {
     position: absolute;
-    bottom: 30%;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 25dvh;
     width: 90%;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .rules-modal {
     height: 100%;
-    background-color: var(--purp);
-    color: white;
+    color: var(--almost-white-pink);
     text-shadow: none;
-  }
-
-  .rules-list {
     font-size: 1rem;
   }
+
+  .rules-modal .btn {
+    width: 70%;
+    margin: 4px auto;
+    padding: 4px;
+  }
+
 }
 
 
@@ -317,10 +349,14 @@ footer a:focus {
     transition: all 0.75s;
   }
 
-  .current-label {
+  .current-label,
+  .overall-label {
     text-transform: uppercase;
-    margin-bottom: 1rem;
     font-size: 1.7rem;
+  }
+
+  .current-label {
+    margin-bottom: 1rem;
     color: #ddd;
   }
 
@@ -373,8 +409,7 @@ footer a:focus {
   }
 
   .rules-modal {
-    height: 85%;
-    width: 50%;
+    width: 70%;
   }
 
   .rules-list {
