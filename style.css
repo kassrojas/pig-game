@@ -12,11 +12,13 @@
   --purp-light: #C77DFF;
   --red: #bf2e34;
   --red-pink: #c7365f;
+  --red-pink-transparent: #c7365f65;
   --light-pink: #ffc0e4;
   --almost-white-pink: #f8e5ff;
   --yellow: #FFEE32;
   --darker-yellow: #FFD500;
   --yellow-orange: #FDC500;
+  --green: rgb(32, 213, 62);
 }
 
 html {
@@ -24,9 +26,10 @@ html {
 }
 
 body {
+  overflow: hidden;
   font-family: 'Nunito', sans-serif;
-  font-weight: 400;
-  height: 100vh;
+  font-weight: 500;
+  height: 100dvh;
   color: #333;
   background-image: linear-gradient(to top left, var(--purp) 0%, var(--red) 100%);
   display: flex;
@@ -34,11 +37,43 @@ body {
   justify-content: center;
 }
 
-.name {
-  position: relative;
+.main {
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(2rem);
+}
+
+.name,
+.current-label,
+.overall-label,
+.btn,
+.rules-btn {
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin: 0 auto;
+}
+
+.current {
+  background-color: var(--red-pink);
+  opacity: 0.8;
+  border-radius: .7rem;
+  color: white;
+  text-align: center;
+}
+
+.current-label {
+  color: papayawhip;
+}
+
+.overall-label,
+.score {
+  color: var(--red-pink);
+  font-weight: 900;
+}
+
+.overall {
+  text-align: center;
+  background-color: papayawhip;
+  border-radius: .7rem;
 }
 
 .btn {
@@ -46,7 +81,6 @@ body {
   background: none;
   border: none;
   font-family: inherit;
-  text-transform: uppercase;
   cursor: pointer;
   font-weight: 400;
   transition: all 0.5s;
@@ -80,13 +114,10 @@ body {
   font-size: 2rem;
   color: var(--purp-dark);
   text-transform: uppercase;
-  justify-content: center;
-}
 
-.rules-modal,
-#you-win {
   position: absolute;
   display: flex;
+  justify-content: center;
   align-items: stretch;
   text-align: center;
   padding: 2rem;
@@ -97,37 +128,49 @@ body {
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.4);
 }
 
+
 .rules-modal {
-  text-shadow: 0 1rem 2rem var(--light-pink);
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(185, 129, 192, 0.5);
+  backdrop-filter: blur(10rem);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.4);
+  /* text-shadow: 0 1rem 2rem var(--light-pink); */
+  /* text-shadow: 1rem 2rem 2rem white; */
 }
 
-.rules-list {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
+.rules-list li {
+  margin: 0.5rem auto;
+}
+
+#rules-heading-win,
+#rules-heading-hot-pot,
+.rules-btn {
+  background-color: white;
+  backdrop-filter: blur(10px);
+  width: fit-content;
   margin: 0 auto;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+}
+
+#rules-heading-win {
+  background-color: rgba(0, 128, 0, 0.8);
+}
+
+#rules-heading-hot-pot {
+  background-color: rgb(200, 37, 37, 0.8);
 }
 
 .rules-btn {
+  background-color: rgba(255, 255, 255, 0.8);
   color: #444;
-  background: none;
-  border: none;
-  font-family: inherit;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-weight: 400;
-  transition: all 0.5s;
-  background-color: white;
-  background-color: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 50rem;
-  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
-  width: fit-content;
-  padding: .7rem;
-  margin: 0 auto;
+  border-radius: 5rem;
+  padding: .75rem;
 }
 
 .close-modal-icon {
@@ -151,18 +194,11 @@ body {
   visibility: hidden;
 }
 
-footer {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  text-align: center;
-}
-
 footer a {
   text-decoration: none;
-  font-size: 3rem;
+  font-size: 2rem;
   transition: all 0.3s;
-  opacity: 0.2;
+  opacity: 0.3;
   border-radius: 10rem;
 }
 
@@ -177,43 +213,52 @@ footer a:focus {
 @media screen and (max-width: 800px) {
 
   .main {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     text-align: center;
-    width: 90%;
+    width: 100dvw;
+    height: 100dvh;
   }
 
+  .current,
+  .overall {
+    width: fit-content;
+    padding: .2rem 2rem;
+    margin: 4px auto;
+  }
+
+
   .player {
-    padding: 0.5rem;
-    margin: 0.5rem auto;
-    transition: all 1s;
-    background-color: var(--purp-dark);
-    border-radius: 2rem;
-    color: var(--purp);
+    margin: 0 auto;
+    transition: all 0.75s;
+    border-radius: 6rem;
     width: 60%;
   }
 
   .player--active {
-    padding: 1rem;
+    padding: 0.2rem;
     background-color: var(--light-pink);
     box-shadow: 2px 2px 12px var(--purp-light);
     color: var(--purp-dark);
-    width: 100%;
+    width: 85%;
   }
 
   .player--winner {
-    transition: all 1s;
+    transition: all 0.7s;
     background-color: var(--yellow);
     color: var(--purp-dark);
     box-shadow: 2px 2px 12px var(--yellow-orange);
-    width: 100%;
-    padding: 1rem;
+    width: 90%;
+    padding: .4rem;
   }
 
   .player--winner .score,
   .player--winner .name {
     color: var(--red);
     font-weight: 900;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .dice {
@@ -252,13 +297,13 @@ footer a:focus {
     position: absolute;
     bottom: 25dvh;
     width: 90%;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .rules-modal {
     height: 100%;
-    color: var(--almost-white-pink);
-    text-shadow: none;
+    /* color: var(--almost-white-pink); */
+    /* text-shadow: none; */
     font-size: 1rem;
   }
 
@@ -282,12 +327,7 @@ footer a:focus {
     width: 100rem;
     height: 60rem;
     display: flex;
-    overflow: hidden;
     border-radius: 1rem;
-    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.4);
-    background-color: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(200px);
-    filter: blur();
   }
 
   .player {
@@ -296,6 +336,7 @@ footer a:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     transition: all 0.75s;
   }
 
@@ -340,29 +381,26 @@ footer a:focus {
   }
 
   .current {
-    background-color: var(--red-pink);
-    opacity: 0.8;
-    border-radius: 9px;
-    color: #fff;
     width: 65%;
     padding: 2rem;
-    text-align: center;
     transition: all 0.75s;
   }
 
   .current-label,
   .overall-label {
-    text-transform: uppercase;
     font-size: 1.7rem;
   }
 
   .current-label {
     margin-bottom: 1rem;
-    color: #ddd;
   }
 
   .current-score {
     font-size: 3.5rem;
+  }
+
+  .overall {
+    padding: 2rem;
   }
 
   .player--winner {
@@ -419,5 +457,16 @@ footer a:focus {
 
   .rules-list h4 {
     font-size: 3rem;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  footer a {
+    font-size: 4rem;
   }
 }

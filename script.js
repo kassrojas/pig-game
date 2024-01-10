@@ -119,4 +119,6 @@ closeModal.addEventListener("click", function () {
   console.log('close modal')
 });
 
+
+
 init();

@@ -12,30 +12,40 @@
 <body>
   <main class="main">
     <section class="player player--0 player--active">
-      <div>
-        <h2 class="name" id="name--0">Player 1</h2>
+      <!-- <div> -->
+      <h2 class="name" id="name--0">
+        Player 1
+      </h2>
+      <div class="overall">
         <p class="overall-label">Overall Score:</p>
         <p class="score" id="score--0"></p>
-        <div class="current">
-          <p class="current-label">Current</p>
-          <p class="current-score" id="current--0"></p>
-        </div>
       </div>
+      <div class="current">
+        <p class="current-label">Current</p>
+        <p class="current-score" id="current--0"></p>
+      </div>
+      <!-- </div> -->
     </section>
     <section class="player player--1">
-      <div>
-        <h2 class="name" id="name--1">Player 2</h2>
+      <!-- <div> -->
+      <!-- <h2 class="name" id="name--1">Player 2</h2> -->
+      <h2 class="name" id="name--1">
+        Player 2
+      </h2>
+      <div class="overall">
         <p class="overall-label">Overall Score:</p>
         <p class="score" id="score--1"></p>
-        <div class="current">
-          <p class="current-label">Current</p>
-          <p class="current-score" id="current--1"></p>
-        </div>
       </div>
+      <div class="current">
+        <p class="current-label">Current</p>
+        <p class="current-score" id="current--1"></p>
+      </div>
+      <!-- </div> -->
     </section>
     <section class="all-buttons">
       <img src="dice-5.png" alt="Playing dice" class="dice" />
       <div class="play-buttons">
+        <h2 id="you-win" class="hidden"></h2>
         <button class="btn btn--roll">🎲 Roll dice</button>
         <button class="btn btn--hold">📥 Hold</button>
       </div>
@@ -44,40 +54,49 @@
         <button class="btn btn--new">🔄 New game</button>
       </div>
     </section>
-    <h2 id="you-win" class="hidden"></h2>
+    <footer>
+      <a href="https://github.com/kassrojas/pig-game" target="_blank" title="View Source Code">🐷</a>
+    </footer>
   </main>
 
   <!-- RULES MODAL // hidden -->
-  <div class="rules-modal hidden">
+  <!-- <div class="rules-modal hidden"> -->
+  <div class="rules-modal">
     <button class="close-modal-icon">&times;</button>
-    <section class="rules-list">
+    <div class="rules-list">
+      <h4>RULES</h4>
       <ul style="list-style: none;">
-        <h4 style="color: limegreen;">TO WIN 🎉</h4>
         <li>
-          Be the first to accumulate an overall score of 100 points!
-        </li></br>
-        <h4 class="rules-btn">🎲 ROLL DICE</h4>
-        </br>
+          <h4 id="rules-heading-win"> TO WIN 🎉</h4>
+        </li>
         <li>
-          This button rolls the dice and adds that dice roll to your current running score
-        </li> </br>
-        <h4 class="rules-btn">📥 HOLD</h4>
-        </br>
+          Be the first to accumulate an <span class="overall-label">overall score </span>of 100 points!
+        </li>
         <li>
-          Click this to add your current runnning score to your overall score and move to the next player.
-        </li></br>
-        <h4 style="color: red;">HOT POTATO ☠️</h4></br>
+          <h4 class="rules-btn">🎲 ROLL DICE</h4>
+        </li>
         <li>
-          If you roll a 1, your <i>current</i> score will be reset to 0.</br> It's not <i>all</i> bad-- your overall
-          score stays the same!
+          This button rolls the dice and adds that dice roll to your <span class="current-label">current score</span>
+        </li>
+        <li>
+          <h4 class="rules-btn">📥 HOLD</h4>
+        </li>
+        <li>
+          Click this to add your <span class="current-label">current score</span> to your
+          <span class="overall-label">overall score</span> and move to the next player.
+        </li>
+        <li>
+          <h4 id="rules-heading-hot-pot">
+            HOT POTATO ☠️</h4>
+        </li>
+        <li>
+          If you roll a 1, your <span class="current-label">current score</span> will be reset to 0.
+          <br />It's not <i>all</i> bad-- your
+          <span class="overall-label">overall score</span> stays the same!
         </li>
       </ul>
-    </section>
+    </div>
   </div>
-
-  <footer>
-    <a href="https://github.com/kassrojas/pig-game" target="_blank">🐷</a>
-  </footer>
   <script src="script.js"></script>
 </body>
 
