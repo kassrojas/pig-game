@@ -116,7 +116,6 @@ btnRules.addEventListener("click", function () {
 
 closeModal.addEventListener("click", function () {
   rulesModal.classList.add("hidden");
-  console.log('close modal')
 });
 
 
