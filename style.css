@@ -276,13 +276,14 @@ footer a:focus {
 
   .play-buttons {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-evenly;
+    width: 100dvw;
   }
 
   .play-buttons .btn {
     padding: 1rem;
-    margin: 0.25rem;
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
   }
 
   .other-btns {
@@ -308,8 +309,9 @@ footer a:focus {
 
   .rules-modal {
     height: 100%;
-    /* color: var(--almost-white-pink); */
-    /* text-shadow: none; */
+    background-color: var(--purp);
+    color: var(--almost-white-pink);
+    text-shadow: 0 0 5rem papayawhip;
     font-size: 1rem;
   }
 
