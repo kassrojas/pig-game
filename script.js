@@ -79,7 +79,6 @@ btnHoldScore.addEventListener("click", function () {
     document.querySelector(`#score--${activePlayer}`).textContent = totalScores[activePlayer];
 
     if (totalScores[activePlayer] >= 100) {
-
       playing = false;
 
       // from active to winner

@@ -311,7 +311,6 @@ footer a:focus {
     height: 100%;
     background-color: var(--purp);
     color: var(--almost-white-pink);
-    text-shadow: 0 0 5rem papayawhip;
     font-size: 1rem;
   }
 
